@@ -1,0 +1,68 @@
+body{
+    text-align: center;
+  background-color: #0D160B;
+    font-family: 'Patrick Hand', cursive;
+    font-size: x-large;
+    color: #96BDC6;
+
+    margin: none;
+}
+.options{
+    display: flex;
+justify-content: center;}
+img{
+height: 200px;
+margin: 20px;
+}
+.header{
+    font-family: 'Josefin Slab', serif;
+    font-variant: small-caps;
+    font-weight: 900;
+}
+.score-board{
+    background-color: #E2C044;
+    border-radius: 2px;
+    margin: auto;
+    width: 90%;
+    height: fit-content;
+  
+    padding-bottom: 10px;
+    color: #D34E24;}
+    .score{
+        font-size: 75px;
+        color:#0D160B ;
+        font-family: 'Josefin Slab', serif;
+        margin: none;
+    }
+    .decision{
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    html,body{
+        width: 100%;
+        height: 100%;
+    }
+    .option{
+        border-radius: 200px;
+        padding: 20px;
+    }
+    .option:hover{
+        cursor: pointer;
+    }
+    .green-glow {
+        border: 4px solid #4dcc7d;
+        box-shadow: 0 0 10px #31b43a;
+        border-radius: 50%;
+        }
+        
+        .red-glow {
+        border: 4px solid #fc121b;
+        box-shadow: 0 0 10px #d01115;
+        border-radius: 50%;
+        }
+        
+        .blue-glow {
+        border: 4px solid #464647;
+        box-shadow: 0 0 10px blue;
+        border-radius: 50%;
+        }

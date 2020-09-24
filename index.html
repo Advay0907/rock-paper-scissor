@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@700&family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1>Rock Paper Scissor</h1>
+    </div>
+    <div class="score-board">
+        <p class="score">Score</p>
+        <p>Humans : Computers</p>
+        <span id="human-score">0</span>
+        <span> : </span>
+        <span id="computer-score">0</span>
+    </div>
+    <div id="decision">Make your Move to begin the game</div>
+    <div class="options">
+        <div id="rock" class="option" >
+            <img src="https://cdn.rawgit.com/aronnax77/whatsdev_tutorials/ef296e2b/images/rock.png"  alt="Rock">
+        </div>
+        <div id="paper" class="option">
+            <img src="https://cdn.rawgit.com/aronnax77/whatsdev_tutorials/ef296e2b/images/paper.png" alt="Paper">
+        </div>
+        <div id="scissor" class="option">
+            <img src="https://cdn.rawgit.com/aronnax77/whatsdev_tutorials/ef296e2b/images/scissors.png" alt="Scissor">
+        </div>    
+    </div>
+
+</body>
+<script>
+    var humanScore=0;
+    var computerScore=0;
+
+    var human_score_span=document.getElementById("human-score");
+    var computer_score_span=document.getElementById("computer-score");
+    var rock_div = document.getElementById("rock");
+    var paper_div = document.getElementById("paper");
+    var scissor_div = document.getElementById("scissor");
+    var textReplace = document.getElementById("decision");
+    window.onload = main();
+    function main(){
+        paper_div.addEventListener("click", function(){
+            game("paper");
+        });
+        rock_div.addEventListener("click", function(){
+            game("rock");
+        });
+        scissor_div.addEventListener("click", function(){
+            game("scissor");
+        });
+        }
+    function game(playerChoice){
+        var computerChoice = chooseItem();
+        switch(playerChoice + computerChoice) { 
+            case "rockscissor": 
+            case "paperrock": 
+            case "scissorpaper": 
+                win(playerChoice, computerChoice); 
+                break; 
+            case "rockpaper": 
+            case "paperscissor": 
+            case "scissorrock": 
+                lose(playerChoice, computerChoice); 
+                break; 
+            case "rockrock": 
+            case "paperpaper": 
+            case "scissorscissor": 
+                draw(playerChoice, computerChoice); 
+                break; }
+
+    }
+    function chooseItem(){
+        var choices = ["rock", "paper", "scissor"];
+        var c= choices[Math.floor(Math.random()*3)];
+        return c;
+    }
+    function win(playerChoice, computerChoice){
+        humanScore++;
+        human_score_span.innerHTML = humanScore;
+        textReplace.innerHTML = "Your " + playerChoice + " beats the computer's "+computerChoice 
+        var userChoice_div = document.getElementById(playerChoice);
+        userChoice_div.classList.add("green-glow")
+        setTimeout(function() {userChoice_div.classList.remove("green-glow");}, 800);
+
+
+    }
+    function lose(playerChoice, computerChoice){
+        computerScore++;
+        computer_score_span.innerHTML = computerScore;
+        textReplace.innerHTML = "Your " + playerChoice + " lost against the computer's "+computerChoice 
+        var userChoice_div = document.getElementById(playerChoice);
+        userChoice_div.classList.add("red-glow")
+        setTimeout(function() {userChoice_div.classList.remove("red-glow");}, 800);
+    }
+    function draw(playerChoice, computerChoice){
+       
+        textReplace.innerHTML = "Your " + playerChoice + " tied with the computer's "+computerChoice 
+        var userChoice_div = document.getElementById(playerChoice);
+        userChoice_div.classList.add("blue-glow")
+        setTimeout(function() {userChoice_div.classList.remove("blue-glow");}, 800);
+    }
+
+</script>
+</html>
